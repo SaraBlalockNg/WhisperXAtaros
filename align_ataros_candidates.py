@@ -141,7 +141,7 @@ def main():
 									index=list(range(i-j,i-count_stars)))
 						split_text = [row.ref[sum(lens[:k]):sum(lens[:k])+lens[k]] for k in range(len(lens))]
 						table.loc[i-j:i,'ref'] = split_text
-						table.loc[i-j:i,'subtokens edited sbng'] = 1
+						table.loc[i-j:i,'subtokens edited'] = 1
 						for k in range(i-j,i+1):
 							row = table.iloc[k]
 							if row.ref == row.hyp:
@@ -159,7 +159,7 @@ def main():
 				i+=1
 		# if you get through the loop you've either added rows or failed to match
 		
-		table[['ref','text','code','prob','xmin','xmax','subtokens edited sbng']].to_csv(os.path.basename(sheet).split('.')[0]+'err.tsv',sep='\t',index=False)
+		table[['ref','text','code','prob','xmin','xmax','subtokens edited']].to_csv(os.path.basename(sheet).split('.')[0]+'err.tsv',sep='\t',index=False)
 		print(sheet,out.wer,sep='\n')
 
 if __name__ == "__main__":
