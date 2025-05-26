@@ -85,13 +85,13 @@ def extract_wave_segment(input_file, output_file, start_time_sec, end_time_sec):
 	command = [
 		'sox',
 		input_file,
-		'./temp.wav',
+		'temp.wav',
 		'trim', str(start_time_sec), str(end_time_sec-start_time_sec)
 	]
 	# Run the command using subprocess
 	subprocess.run(command, check=True)
 	
-	sound = parselmouth.Sound('./temp.wav')
+	sound = parselmouth.Sound('temp.wav')
 	sound.scale(0.99)
 	sound.save(output_file, "WAV")
 
