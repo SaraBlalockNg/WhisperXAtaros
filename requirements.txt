@@ -1,0 +1,5 @@
+jiwer==3.0.3
+numpy==1.25.2
+pandas==2.1.1
+praatio==6.0.1
+praat-parselmouth==0.4.3
